@@ -34,11 +34,11 @@ def robot(connection, func, **args):
     # Input arguments - args, need to be in a dictionary - or json format. 
     # It also has to be in 'byte string' format to be able to transfer it over networks.
     # Define a variable named data which is an encoded json of input arguments
-    data = ?
+    data = json.dumps(args).encode('utf-8')
     # Now, using the 'connection' variable defined above, we process func with its prepared data
     # This should implement func at the robot's port which it's listening
     # The arguments for connection.request are POST, func with slash prefix to separate with POST and data
-    ?
+    connection.request('POST', f'/{func}', body=data)
     # Now, we read the response as we listen to the robot's port:
     with connection.getresponse() as response:
         response.read()
@@ -73,7 +73,7 @@ def robot_null(connection):
 from statistics import mean, stdev
 first_call = robot_null(connection)
 # call robot_null 100 times and store in 'stats'
-stats = ?
+stats = [robot_null(connection) for _ in range(100)]
 print(f"time of first call: {first_call}")
 print(f"time, average: {mean(stats)}")
 print(f"time, max: {max(stats)}")
