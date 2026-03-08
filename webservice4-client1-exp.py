@@ -9,10 +9,10 @@ import json
 import time
 
 # Your robot's computer's communication port
-MY_PORT = ?
+MY_PORT = 8888
 
 # Following variable should be your robot's url in f-string format - containing MY_PORT
-MY_ROBOT_URL = ?
+MY_ROBOT_URL = f"http://raspberrypi:{MY_PORT}"
 
 
 # Complete the following function
@@ -32,10 +32,10 @@ def robot(func, **args):
     # Input arguments - args, need to be in a dictionary - or json format. 
     # It also has to be in 'byte string' format to be able to transfer it over networks.
     # Define a variable named data which is an encoded json of input arguments
-    data = ?
+    data = json.dumps(args).encode('utf-8')
     # Now, using urlopen, process func with its prepared args
     # This should implement func at the robot's port which it's listening
-    ?
+    urlopen(f"{MY_ROBOT_URL}/{func}", data=data)
 
 
 
