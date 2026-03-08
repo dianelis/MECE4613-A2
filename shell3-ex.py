@@ -23,7 +23,10 @@ def get_kwargs(line):
     items = line.split()    # now, items is a list such that items = [num1, num2]
     # put the first item item in 'duration' field of the dictioary
     # and the second item in 'speed' field of the dictionary
-    ?
+    if len(items) >= 1:
+        kwargs['duration'] = float(items[0])
+    if len(items) >= 2:
+        kwargs['speed'] = int(items[1])
     return kwargs
  
 
