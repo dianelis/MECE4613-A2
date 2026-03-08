@@ -24,8 +24,9 @@ class Robot:
         self.Motors = {'R': ck.dc_motor_2, 'L':ck.dc_motor_1} 
         # define synchronization parameter
         # this coefficient will be applied to the right motor
-        self.SyncForwardR = ?
-        self.SyncBackwardR = ?
+        # NOTE: adjust these values experimentally for your robot to drive straight
+        self.SyncForwardR = 0.95
+        self.SyncBackwardR = 0.95
 
 
     def _set_throttle(self, motor, value):
@@ -44,10 +45,22 @@ class Robot:
             - valueL: the throttle value of the left motor (0 to 1)
             - Duration: the time that the robot should move (sec)
         """
-        # check the valueR and set the proper value for motor's throttle
-        ?
-        # drive the motor and stop it
-        ?
+        # check the valueR and set the proper sync coefficient based on direction
+        if valueR >= 0:
+            sync = self.SyncForwardR
+        else:
+            sync = self.SyncBackwardR
+
+        # apply sync coefficient to right motor, left motor stays as-is
+        self._set_throttle(self.Motors['R'], valueR * sync)
+        self._set_throttle(self.Motors['L'], valueL)
+
+        # drive for the specified duration
+        time.sleep(Duration)
+
+        # stop both motors
+        self._set_throttle(self.Motors['R'], 0)
+        self._set_throttle(self.Motors['L'], 0)
 
 
 
