@@ -20,6 +20,8 @@ It's a very powerful tool to create a customized function with pre-defined or ne
 
 # Hyper parameters of your robot that you found in controller09-ex.py exercise.
 # NOTE: each robot is different; if you haven't found it yet, go back to that exercise and find these coefficients.
+# TODO: tune these values on your robot — must match controller09-ex.py values
+# TODO: once verified, copy this file to motor.py:  cp motor-ex.py motor.py
 SyncForwardR = 0.95    # the right motor's sync coefficient when it moves forward
 SyncBackwardR = 0.95   # the right motor's sync coefficient when it moves backward
 # We now define two standard dictionaries which the script will refer it:

@@ -9,6 +9,7 @@ import json
 import time
 
 # Your robot's computer's communication port
+# TODO: confirm this is your group's assigned port — ask your TA if unsure
 PORT = 8888
 NAME = "raspberrypi"
 

@@ -25,6 +25,7 @@ class Robot:
         # define synchronization parameter
         # this coefficient will be applied to the right motor
         # NOTE: adjust these values experimentally for your robot to drive straight
+        # TODO: tune these values on your robot — drive straight for ~24 inches
         self.SyncForwardR = 0.95
         self.SyncBackwardR = 0.95
 

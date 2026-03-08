@@ -9,6 +9,7 @@ import json
 import time
 
 # Your robot's computer's communication port
+# TODO: confirm this is your group's assigned port — ask your TA if unsure
 MY_PORT = 8888
 
 # Following variable should be your robot's url in f-string format - containing MY_PORT
