@@ -13,7 +13,7 @@ import time
 MY_PORT = 8888
 
 # Following variable should be your robot's url in f-string format - containing MY_PORT
-MY_ROBOT_URL = f"http://raspberrypi:{MY_PORT}"
+MY_ROBOT_URL = f"http://192.168.132.72:{MY_PORT}"
 
 
 # Complete the following function
