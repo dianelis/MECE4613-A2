@@ -18,7 +18,10 @@ class RobotShell(cmd.Cmd):
     intro = 'Welcome to the robot shell. Type help or ? to list commands.'
     prompt = '(robot) '
  
-    def do_Quit(self, line):
+    def precmd(self, line):
+        return line.lower()
+ 
+    def do_quit(self, line):
         return True
  
     def do_forward(self, line):
