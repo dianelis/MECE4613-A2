@@ -45,9 +45,9 @@ def set_throttle(motor_name, speed, factor=1):
     # If the motor_name is 'R' then, we have to apply sync coefficients - depending on the direction:
     if motor_name == 'R':
         sync = SyncForwardR if factor >= 0 else SyncBackwardR
+        factor = -factor  # negate right motor to correct for opposite mounting direction
     else:
         sync = 1
-        factor = -factor  # negate left motor to correct for opposite mounting direction
     # Now, we set the throttle speed to the given motor:
     MOTOR[motor_name].throttle = THROTTLE_SPEED[speed] * sync * factor
  
