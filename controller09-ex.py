@@ -52,9 +52,9 @@ class Robot:
         else:
             sync = self.SyncBackwardR
 
-        # apply sync coefficient to right motor; negate left motor to match direction
-        self._set_throttle(self.Motors['R'], valueR * sync)
-        self._set_throttle(self.Motors['L'], -valueL)
+        # apply sync coefficient to right motor; negate right motor to match direction
+        self._set_throttle(self.Motors['R'], -valueR * sync)
+        self._set_throttle(self.Motors['L'], valueL)
 
         # drive for the specified duration
         time.sleep(Duration)
