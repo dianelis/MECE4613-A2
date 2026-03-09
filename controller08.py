@@ -64,9 +64,9 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Robot input parameters.")
-    parser.add_argument("-l", "--left", type=float, help="The left motor's signal value.")
-    parser.add_argument("-r", "--right", type=float, help="The right motor's signal value.")
-    parser.add_argument("-d", "--duration", type=float, help="The time lapse that the robot should move.")
+    parser.add_argument("-l", "--left", type=float, default=0.0, help="The left motor's signal value.")
+    parser.add_argument("-r", "--right", type=float, default=0.0, help="The right motor's signal value.")
+    parser.add_argument("-d", "--duration", type=float, default=1.0, help="The time lapse that the robot should move.")
     args = parser.parse_args()
 
     main(args)
